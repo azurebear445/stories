@@ -1,0 +1,60 @@
+# JIRA Story: CLOUD-2290
+## Add support for ESG (Enterprise Security Group) Rules into NSG Module
+
+---
+
+### **Description**
+
+**Background:**
+- In AWS, Enterprise Security Groups (ESGs) provide standard enterprise controls and are automatically attached to resources via AWS Firewall Manager
+- Azure does not have an equivalent auto-propagation capability
+- Teams migrating to Azure need the same enterprise security controls
+
+**Goal:**
+- Extend the Azure NSG Terraform module to automatically include enterprise security rules
+- ESG rules will be embedded directly in the module
+- Teams will get enterprise rules automatically when they create an NSG
+
+**Approach:**
+- Start with one ESG to validate the approach
+- Expand to remaining ESGs in subsequent phases
+
+---
+
+### **Acceptance Criteria**
+
+- [ ] ESG rules integrated into NSG module
+- [ ] ESG rules automatically merged with user-supplied rules
+- [ ] Validation logic prevents priority conflicts
+- [ ] Rules convert correctly from AWS to Azure format
+- [ ] Successfully tested in sandbox environment
+- [ ] Documentation updated
+- [ ] Terraform validate passes
+
+---
+
+### **Definition of Done**
+
+- [ ] ESG rules embedded in module
+- [ ] Priority allocation logic implemented
+- [ ] Tested in sandbox subscription
+- [ ] Rules verified in Azure Portal
+- [ ] Documentation updated
+- [ ] Code reviewed and approved
+- [ ] Merged to main branch
+
+---
+
+### **Out of Scope (Future Work)**
+
+- Additional ESG conversions (follow-on stories)
+- Tag-based conditional application
+- Environment-specific variations
+
+---
+
+### **Dependencies**
+
+- Access to AWS ESG definitions
+- Azure sandbox subscription for testing
+- Security team review of converted rules
