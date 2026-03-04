@@ -136,3 +136,38 @@ Key Contact
 Muhammad Azam (CIS Engineering)
 
 Want any changes?
+
+
+
+
+
+
+
+Add optional existing public key input to SSH Public Key module
+Story Points: 1
+
+Description
+Enhance the Azure SSH Public Key module to accept an existing public key instead of generating a new one. This provides flexibility for teams who want to use their existing SSH keys rather than having the module generate new ones.
+
+Acceptance Criteria
+
+Optional public_key variable added to accept existing SSH public key string
+Module skips TLS key generation when public_key is provided
+Module generates new key when public_key is not provided (current behavior preserved)
+New example folder examples/existing_key/ demonstrating the feature
+README updated with existing key usage example
+terraform fmt passes
+terraform validate passes
+terraform plan passes
+terraform apply successful in sandbox
+
+
+Definition of Done
+
+public_key variable added with proper validation
+Conditional logic implemented for key generation vs import
+examples/default/ continues to work (generates new key)
+examples/existing_key/ created and tested
+README updated
+Code reviewed and approved
+Merged to main branch
