@@ -98,3 +98,41 @@ Testing:
 Ready for code review.
 
 Copy/paste both and you're done!
+
+
+
+Review, deploy, and deliver Netskope Key Vault infrastructure
+Key details
+Description
+Submit Terraform code for review, address reviewer feedback, and deploy the Netskope Key Vault infrastructure via VCS-driven run in TFE. Once deployed, collect outputs and share with the requester team to complete SCTASK3364895.
+Key Requirements:
+
+Submit merge request in GitLab for the CSPMProd-Netskope repo
+Address reviewer comments and make required code changes
+Merge approved code to main branch
+VCS-triggered run in TFE workspace CSPMProd-Netskope executes terraform plan
+Review plan output and confirm resources to be created
+Apply infrastructure via TFE
+Collect terraform outputs (Vault URI, Certificate Name, Certificate Thumbprint, Private Key)
+Share outputs with requester team (Muhammad Azam / CIS Engineering)
+
+Acceptance Criteria
+
+Merge request approved by reviewer
+terraform plan shows expected resources with no errors
+terraform apply completes successfully
+Key Vault, certificate, and role assignment are live in Azure
+All four output values collected and shared with requester
+SCTASK3364895 updated and closed
+
+Definition of Done (DOD)
+
+Code reviewed and merged
+Infrastructure deployed via TFE
+Outputs delivered to requester team
+SCTASK3364895 closed
+
+Key Contact
+Muhammad Azam (CIS Engineering)
+
+Want any changes?
