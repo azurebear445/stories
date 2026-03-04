@@ -48,3 +48,53 @@ Key Contact
 Muhammad Azam (CIS Engineering)
 
 Want me to adjust anything?
+
+
+
+
+New Story (1 point)
+Title:
+Azure Storage Account module - update examples and documentation
+Description:
+Restructure examples folder and update documentation for module consumption.
+Key Requirements:
+- Restructure examples/default/ to include lifecycle testing
+- Create examples/diagnostic_logging/ for full feature testing
+- Update example README files to match approved format
+- Update root README.md with AWS comparison and variable documentation
+- Alphabetize outputs, variables, and compliance tags
+- Validate all configurations pass terraform fmt/init/validate
+Acceptance Criteria:
+- examples/default/ tests lifecycle functionality
+- examples/diagnostic_logging/ tests lifecycle + diagnostic logging
+- All README files follow approved format
+- Root README.md documents all inputs/outputs
+- terraform validate passes on all configurations
+Definition of Done:
+- Examples restructured and tested
+- Documentation updated
+- Code formatted and validated
+
+Closing Comment
+Status: Done ✅
+
+Summary:
+Restructured examples and updated documentation for team consumption.
+
+Changes:
+- Restructured examples/default/ to test lifecycle functionality
+- Created examples/diagnostic_logging/ to test lifecycle + diagnostic logging
+- Updated example README files to approved format (title, description, code)
+- Updated root README.md with AWS vs Azure comparison table
+- Added inputs/outputs documentation to README
+- Alphabetized outputs, variables, compliance tags
+- Fixed enabled_metric deprecation warning
+
+Testing:
+- terraform fmt ✅
+- terraform init ✅
+- terraform validate ✅ (root module + both examples)
+
+Ready for code review.
+
+Copy/paste both and you're done!
