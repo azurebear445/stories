@@ -171,3 +171,10 @@ examples/existing_key/ created and tested
 README updated
 Code reviewed and approved
 Merged to main branch
+
+
+Just confirming before I proceed — when we say “failover capabilities,” do we mean enabling cross-region communication between **secure-prod-vnet (West US)** and **secure-devtest-vnet (West US 2)** so traffic can still reach resources if one region or tunnel path is unavailable?
+
+If that’s the goal, I can configure VNet peering between the two VNets on the Azure side.
+
+
