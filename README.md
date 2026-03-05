@@ -177,6 +177,21 @@ Just confirming before I proceed — when we say “failover capabilities,” do
 
 If that’s the goal, I can configure VNet peering between the two VNets on the Azure side.
 
+Just to make sure I understand the direction correctly.
+
+Jeffrey mentioned the goal is to have Azure advertise **all four prefixes over all four VPN paths** so Webster can reach any prefix through any tunnel for failover.
+
+Thuan, from your suggestion it sounds like we might instead create separate VNets per environment in each region (for example prod-vnet(s) in both West US and West US 2, and dev/test-vnet(s) in both regions) to keep prod and dev/test VNets separated.
+
+Can you confirm which approach we want?
+
+1. **Peer the existing VNets** so both gateways learn all prefixes and advertise them over all tunnels (fastest path to meet the “all prefixes over all paths” requirement).
+
+or
+
+2. Proceed with an **env-separated / multi-VNet redesign**. Note: to still meet “all prefixes over all paths,” we’d need additional Azure routing design (e.g., a neutral hub and controlled route propagation), otherwise each gateway would only advertise a subset of prefixes.
+
+Just want to align on the target behavior before I make changes on the Azure side.
 
 Got it — thanks for confirming. I’ll configure VNet peering between secure-prod-vnet (West US) and secure-devtest-vnet (West US 2) so both gateways can advertise all prefixes over all paths.
 
