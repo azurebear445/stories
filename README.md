@@ -238,6 +238,6 @@ Could you please check on the AWS/Palo side what prefixes are currently being le
 
 This will help confirm how the route advertisements are behaving with the current setup.
 
-
+Could we run a quick failover validation from the AWS/Palo side? It would be helpful to confirm whether both the prod prefixes (10.x) and dev/test prefixes (192.168.x) remain reachable when traffic is tested over each tunnel (or when certain tunnels are temporarily disabled or deprioritized).
 
 
