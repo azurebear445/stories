@@ -178,3 +178,7 @@ Just confirming before I proceed — when we say “failover capabilities,” do
 If that’s the goal, I can configure VNet peering between the two VNets on the Azure side.
 
 
+Got it — thanks for confirming. I’ll configure VNet peering between secure-prod-vnet (West US) and secure-devtest-vnet (West US 2) so both gateways can advertise all prefixes over all paths.
+
+
+
