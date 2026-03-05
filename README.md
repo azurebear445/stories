@@ -197,3 +197,47 @@ Got it — thanks for confirming. I’ll configure VNet peering between secure-p
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thanks for the clarification.
+
+Based on Jeffrey’s note, the goal is for Azure to advertise **all four prefixes over all four VPN paths**, so Webster can reach any prefix through any tunnel for failover. From a routing perspective, the simplest way to achieve this is to peer the existing VNets:
+
+secure-prod-vnet (West US) ↔ secure-devtest-vnet (West US 2)
+
+With the peering in place, each VPN gateway will learn the prefixes from the other VNet over Azure’s backbone and advertise them over the existing BGP sessions. This would allow traffic to enter through the West US 2 gateway and still reach the prod VNet if there is a VPN or internet connectivity issue affecting the West US path.
+
+Regarding the earlier comment about potential technical constraints: from an Azure networking perspective there isn’t a limitation preventing these VNets from being peered. The peering simply establishes routing adjacency between the networks over Azure’s backbone and does not require any changes to the existing VPN tunnels or BGP configuration.
+
+As a precaution, I can also apply NSG deny rules on the Azure side to prevent unintended prod ↔ dev/test traffic while still allowing the routing and failover behavior described above.
+
+If this aligns with the intended design, I can proceed with the Azure-side configuration.
+
+
+The VNet peering between **secure-prod-vnet (West US)** and **secure-devtest-vnet (West US 2)** is now in place and the peering state shows **Connected / Fully synchronized** on both sides.
+
+With this configuration, traffic between the two VNets can traverse the Azure backbone.
+
+Could you please check on the AWS/Palo side what prefixes are currently being learned from Azure on each tunnel? Specifically, it would be helpful to confirm whether both the **prod prefixes (10.x)** and **dev/test prefixes (192.168.x)** are visible across all four tunnels or if each gateway is still advertising only its local VNet ranges.
+
+This will help confirm how the route advertisements are behaving with the current setup.
+
+
+
+
